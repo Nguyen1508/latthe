@@ -13,6 +13,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const set_target = document.getElementById('set_target');
     const target_p = document.getElementById('target_p');
 
+    set_target.addEventListener("click", () => {
+        const inputValue = input.value;
+    
+        // Kiểm tra nếu ô input rỗng hoặc không phải số
+        if (!inputValue || isNaN(inputValue)) {
+            alert("Vui lòng nhập một số hợp lệ!");
+            return; // Ngăn không cho thực hiện tiếp nếu chưa nhập số
+        }
+    
+        target = Number(input.value);  // Chuyển giá trị input thành số
+        target_p.textContent = `Số cần tìm là: ${target}`;
+        resetGame();  // Reset trò chơi khi nhập số mới
+    });
+
     // Hàm reset toàn bộ trò chơi
     function resetGame() {
         found = false;  // Đặt lại cờ `found`
@@ -49,23 +63,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Sự kiện click vào thẻ để lật thẻ và kiểm tra số
         cardElement.addEventListener('click', () => {
+            if (isNaN(target) || target === 0) {  // Kiểm tra nếu chưa nhập số hợp lệ
+                alert("Vui lòng nhập số cần tìm trước khi lật thẻ!");
+                return;
+            }
+    
             if (found || index !== currentIndex) return;  // Chỉ cho phép lật thẻ theo thứ tự
-
+    
             cardElement.classList.add('flipped');  // Lật thẻ khi người dùng click
             flips++;  // Tăng số lần lật thẻ
-
+    
             if (value === target) {
                 resultElement1.textContent = `Đã tìm thấy ${target}!`;
                 resultElement2.textContent = `Vị trí: ${index + 1}`;
                 resultElement3.textContent = `Số lần lật thẻ: ${flips}`;
                 found = true;  // Đặt cờ `found` thành true khi tìm thấy số
-                setTimeout(resetGame, 5000);  // Reset sau 2 giây
+                setTimeout(resetGame, 5000);  // Reset sau 5 giây
             } else {
                 resultElement1.textContent = `Số ${target} không có ở vị trí này.`;
                 resultElement2.textContent = `Số lần lật thẻ: ${flips}.`;
                 currentIndex++;  // Tăng chỉ số để cho phép lật thẻ tiếp theo
             }
-
             // Nếu đã duyệt qua tất cả các thẻ mà không tìm thấy số
             if (!found && currentIndex === cards.length) {
                 resultElement1.textContent = `Không tìm thấy số ${target} trong danh sách!`;
