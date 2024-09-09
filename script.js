@@ -5,7 +5,9 @@ document.addEventListener("DOMContentLoaded", () => {
     let flips = 0;  // Đếm số lần lật thẻ
     let currentIndex = 0;  // Chỉ số của thẻ hiện tại có thể lật
     const cardsContainer = document.getElementById('cards-container');
-    const resultElement = document.getElementById('result');
+    const resultElement1 = document.getElementById('result1');
+    const resultElement2 = document.getElementById('result2');
+    const resultElement3 = document.getElementById('result3');
     const resetButton = document.getElementById('reset');
     const input = document.getElementById('input');
     const set_target = document.getElementById('set_target');
@@ -16,7 +18,9 @@ document.addEventListener("DOMContentLoaded", () => {
         found = false;  // Đặt lại cờ `found`
         flips = 0;  // Đặt lại số lần lật thẻ
         currentIndex = 0;  // Đặt lại chỉ số thẻ hiện tại
-        resultElement.textContent = '';  // Xóa kết quả cũ
+        resultElement1.textContent = '';  // Xóa kết quả cũ
+        resultElement2.textContent = ''; 
+        resultElement3.textContent = '';
         cardsContainer.innerHTML = '';  // Xóa các thẻ cũ
         initializeGame();  // Tạo lại các thẻ
     }
@@ -51,18 +55,21 @@ document.addEventListener("DOMContentLoaded", () => {
             flips++;  // Tăng số lần lật thẻ
 
             if (value === target) {
-                resultElement.textContent = `Đã tìm thấy ${target} ở vị trí ${index + 1}! Số lần lật thẻ: ${flips}`;
+                resultElement1.textContent = `Đã tìm thấy ${target}!`;
+                resultElement2.textContent = `Vị trí: ${index + 1}`;
+                resultElement3.textContent = `Số lần lật thẻ: ${flips}`;
                 found = true;  // Đặt cờ `found` thành true khi tìm thấy số
-                setTimeout(resetGame, 2000);  // Reset sau 2 giây
+                setTimeout(resetGame, 5000);  // Reset sau 2 giây
             } else {
-                resultElement.textContent = `Số ${target} không có ở vị trí này. Lần lật thẻ: ${flips}`;
+                resultElement1.textContent = `Số ${target} không có ở vị trí này.`;
+                resultElement2.textContent = `Số lần lật thẻ: ${flips}.`;
                 currentIndex++;  // Tăng chỉ số để cho phép lật thẻ tiếp theo
             }
 
             // Nếu đã duyệt qua tất cả các thẻ mà không tìm thấy số
             if (!found && currentIndex === cards.length) {
-                resultElement.textContent = `Không tìm thấy số ${target} trong danh sách!`;
-                setTimeout(resetGame, 2000);  // Reset sau 2 giây
+                resultElement1.textContent = `Không tìm thấy số ${target} trong danh sách!`;
+                setTimeout(resetGame, 5000);  // Reset sau 2 giây
             }
         });
 
@@ -71,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function initializeGame() {
         cardsContainer.innerHTML = '';  // Xóa thẻ trước khi khởi động lại
-        resultElement.textContent = '';  // Xóa nội dung kết quả
+        resultElement1.textContent = '';  // Xóa nội dung kết quả
         cards.forEach((card, index) => {
             const cardElement = createCard(card, index);
             cardsContainer.appendChild(cardElement);
