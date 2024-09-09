@@ -1,5 +1,6 @@
 @media (max-width: 768px) {
     body {
+        padding: 30px;
         mmargin-top: 30px;
         font-size: 16px;
         padding: 10px;
