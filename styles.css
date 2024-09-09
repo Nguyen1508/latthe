@@ -37,7 +37,7 @@
 /* Căn chỉnh nội dung giữa trang và thay đổi nền */
 body {
     font-family: Arial, sans-serif;
-    background-color: #0077BE ;  /* Đổi màu nền sang xám đậm */
+    background-color: #2b7ba8 ;  /* Đổi màu nền sang xám đậm */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -61,7 +61,7 @@ h1 {
     font-size:  80px;
 }
 
-.input-container {
+.input-container, .result {
     background-color: #fff;
     padding: 20px;
     border-radius: 17px;
@@ -122,8 +122,8 @@ button:hover {
 .card {
     width: 80px;
     height: 120px;
-    background-color: #00CED1;  /* Màu nền mặt trước của thẻ (trước khi lật) */
-    color: white;
+    background-color: #FFDD94;  /* Màu nền mặt trước của thẻ (trước khi lật) */
+    color: #2b7ba8;
     font-size: 24px;
     display: flex;
     justify-content: center;
@@ -161,9 +161,11 @@ button:hover {
 }
 
 /* Kết quả */
-p {
+h3 {
     font-size: 18px;
-    color: #fff;  /* Màu xanh dương nhạt cho chữ */
+    color: #478CCF; 
+    margin-top: 10px;
+     /* Màu xanh dương nhạt cho chữ */
 }
 
 /* Nút reset */
