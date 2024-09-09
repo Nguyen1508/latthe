@@ -124,7 +124,7 @@ button:hover {
 .card {
     width: 80px;
     height: 120px;
-    background-color: #FFDD94;  /* Màu nền mặt trước của thẻ (trước khi lật) */
+    background-color: #fff;  /* Màu nền mặt trước của thẻ (trước khi lật) */
     color: #2b7ba8;
     font-size: 24px;
     display: flex;
@@ -158,7 +158,7 @@ button:hover {
 
 /* Mặt sau của thẻ bài, hiển thị số */
 .card .back {
-    background-color: #fff;  /* Màu vàng cam cho mặt sau */
+    background-color: #FFDD94;  /* Màu vàng cam cho mặt sau */
     transform: rotateY(180deg);
 }
 
