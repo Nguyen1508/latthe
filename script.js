@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const cards = [3, 8, 12, 20, 7, 5, 14, 18, 21, 46, 14, 53, 24, 32];  // Danh sách các số trên thẻ
+    const cards = [3, 8, 12, 20, 7, 5, 14, 18, 21, 46, 24, 53, 24, 32];  // Danh sách các số trên thẻ
     let target = 0;  // Số cần tìm
     let found = false;  // Cờ kiểm tra xem số đã được tìm thấy hay chưa
     let flips = 0;  // Đếm số lần lật thẻ
